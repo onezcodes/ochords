@@ -1,0 +1,712 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00B0BA568FCB644415B2FF18 /* ChordLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 717F4D67D2885AB5A92F627D /* ChordLibrary.swift */; };
+		02F2C1217312FA16EDC390A6 /* VisionOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2AD872BAD13BD9978D66C0 /* VisionOCR.swift */; };
+		060FC51FCB9A2124377DE928 /* LyricLineEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FE10BF3ACA79C8F00B09AF /* LyricLineEditor.swift */; };
+		06FEA0BB79C4206AD958BB19 /* NotoSansMyanmar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66C8AA12ADEF8FCB9DDF14E0 /* NotoSansMyanmar.ttf */; };
+		097B235B03B342AACA64740A /* ChordSheetParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F6976391194738171CA53 /* ChordSheetParser.swift */; };
+		0C5813CE194FE12B89C49E02 /* ImportScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364AAC3FEB02D11C8DCC784 /* ImportScreens.swift */; };
+		0C808340396903A887F5401F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6167B7AB2FBC121410994 /* Route.swift */; };
+		0CCB1D4553470D89E5137FAD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ACE9C0E4A0280E55A8D82B /* APIClient.swift */; };
+		1A520D5F0A065A4A360FDC45 /* SongScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B2D89C8DEE2D8DA0805FC /* SongScreens.swift */; };
+		1E98F24177EC270F6FC76B96 /* LearnScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0232D38EB4C7B0F6379CE9 /* LearnScreens.swift */; };
+		21ABB177DEBC18162A777BE5 /* MicInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8E4E518F2B566531ED973F /* MicInput.swift */; };
+		23EBAC3978C84EEF14D1A1F8 /* Outfit.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6142ACB6A9BD8C8B1E7187AE /* Outfit.ttf */; };
+		270F48C8BB9D5C07CC44467D /* AdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD173B513A57A8ECFB7BB5D /* AdService.swift */; };
+		302CE6E59A9C61D2E51D05DE /* ChordCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9FEB6E644B735562558CC /* ChordCheck.swift */; };
+		3776782B941ED8B6594F326D /* OChordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6ACCD9B55FD538072624D0 /* OChordsApp.swift */; };
+		49D6C85DD312D93253D4F38C /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = C1F92DD65B86FE6B1585AEC1 /* GoogleMobileAds */; };
+		4A2292DC80775FDBB6EEA3B8 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 6C140719CFA60C231AD13765 /* GoogleSignIn */; };
+		5139DF99F1A12EF78AF2977B /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A583617669B3081986992411 /* Models.swift */; };
+		57838D1D1B84F5ED36D9556E /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC252B41A3C18FB7A5B3F1 /* MockData.swift */; };
+		59D5A7C62789857D72E81E7F /* RemoteBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792217623502B70BC90F4C8C /* RemoteBackend.swift */; };
+		64068004725780639193CAA9 /* LibraryScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BD1ABAD76BDE80EDD44C9 /* LibraryScreens.swift */; };
+		706C3A3179CAB77112B3A897 /* ExploreScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8770F6C88DED46C4EB319E7 /* ExploreScreens.swift */; };
+		72DAC360E58C47E63D83035E /* Zawgyi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64960367D28BEBEA5BAC6A23 /* Zawgyi.swift */; };
+		78680F794A2FE0A800EBF7CD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454AD355014630E29442AA /* AppState.swift */; };
+		827B2987C311205FD3F91CB4 /* JetBrainsMono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA4F9BBF5D5F12989F4BE930 /* JetBrainsMono.ttf */; };
+		84D6382A72F6AFCFA9989844 /* SheetScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7051D5166F9D05E91DE10181 /* SheetScanner.swift */; };
+		894F3253CCF7C647C604333D /* ChordFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5B13AD78D50682F21DADF1 /* ChordFollower.swift */; };
+		89A9446E585BC3C31B885B93 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7AA1C19F1A164BDB4679CD2 /* Services.swift */; };
+		8AAD397E82AB1CC3D410B0A7 /* ChordTheory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7322CA8BB880FC07C52ACAD5 /* ChordTheory.swift */; };
+		A2467133C829C76DAE240457 /* GuestStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C62B18234F0250565F611A1 /* GuestStore.swift */; };
+		A37B657FBED21286640D7DD2 /* ChordEstimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0AD9EC675013D77E180E20 /* ChordEstimator.swift */; };
+		A5E40EFFED4C90619F7D5CDE /* TunerChime.swift in Sources */ = {isa = PBXBuildFile; fileRef = B35698FA6665CB94E670B63D /* TunerChime.swift */; };
+		A8D995638CC2294803E25227 /* ScanArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = D913B7B265E37BD45BFB76C3 /* ScanArchive.swift */; };
+		AA577088A462C300318F1056 /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A400374DE0B5AD1257D938 /* OnboardingScreens.swift */; };
+		B48F3BCB9A36B94E9AB27C66 /* SettingsScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315D08ED62624FF9CBC4683C /* SettingsScreens.swift */; };
+		B6EBF3B43334BAAD5712DA48 /* ServerOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5793344AAC3F2AFE6D69C70 /* ServerOCR.swift */; };
+		BB42C8D8AAB9B4E183F384E8 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD3CC037EC0E7CC51793B8 /* Components.swift */; };
+		BC8A991A77C80894E693E2B1 /* ChordListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BBF3BF0B48C5ADA82809A3 /* ChordListener.swift */; };
+		BD719D93CF6A855ECFA3AFF8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9136AB85F0CDCA949F1A2CE5 /* Theme.swift */; };
+		BE5878455C60533337A6A9E3 /* HandsFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA29E62A282B23034D54096 /* HandsFree.swift */; };
+		C1FE50D1917386ECB3BA8889 /* TuningSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BADF7888A0F8DFCD3A791D /* TuningSession.swift */; };
+		C90E40741026C3A7CB22CA30 /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5729343D9BACD29EBBC79 /* CropView.swift */; };
+		CF97DD0D4DD83855AD9764D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43CAFAF8BF54D95BB4A8AF6C /* Assets.xcassets */; };
+		D277F964D9870A9383B04DE9 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C40220B74A3E2EA8117248 /* StoreService.swift */; };
+		D9262661E5210033DB4BB9C1 /* SongListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 285C0FF803B2A86BAD4AC951 /* SongListener.swift */; };
+		E28DDE57AE2C251AD3707CAE /* ChordDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246A1301BB04520A07ADE0B /* ChordDiagram.swift */; };
+		E4FEF0AE3961149DFB106D6D /* OChords.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 3778F9A47D82C9E128C397D0 /* OChords.storekit */; };
+		E9636F0B5465578D368C6B16 /* ToolScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6961968A04F4871DDAEEE20C /* ToolScreens.swift */; };
+		F59F6E6DB0D059B24F7EC89C /* SocialSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640C8EDFC4DE31A4872D955 /* SocialSignIn.swift */; };
+		F7CB96B27AAD9FA9E9641B8E /* PitchDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47208F8C5E50FDCD0A80C00D /* PitchDetector.swift */; };
+		FD7514F9831E39D08F8D211F /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4EC631367E2E7A1C19492 /* Brand.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0C62B18234F0250565F611A1 /* GuestStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestStore.swift; sourceTree = "<group>"; };
+		1A1BD1ABAD76BDE80EDD44C9 /* LibraryScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryScreens.swift; sourceTree = "<group>"; };
+		1A8E4E518F2B566531ED973F /* MicInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicInput.swift; sourceTree = "<group>"; };
+		1C6ACCD9B55FD538072624D0 /* OChordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OChordsApp.swift; sourceTree = "<group>"; };
+		1F2AD872BAD13BD9978D66C0 /* VisionOCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOCR.swift; sourceTree = "<group>"; };
+		202B2D89C8DEE2D8DA0805FC /* SongScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongScreens.swift; sourceTree = "<group>"; };
+		27AC252B41A3C18FB7A5B3F1 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
+		285C0FF803B2A86BAD4AC951 /* SongListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongListener.swift; sourceTree = "<group>"; };
+		28A400374DE0B5AD1257D938 /* OnboardingScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
+		2C5F6976391194738171CA53 /* ChordSheetParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordSheetParser.swift; sourceTree = "<group>"; };
+		2F0232D38EB4C7B0F6379CE9 /* LearnScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnScreens.swift; sourceTree = "<group>"; };
+		315D08ED62624FF9CBC4683C /* SettingsScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreens.swift; sourceTree = "<group>"; };
+		32D9FEB6E644B735562558CC /* ChordCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCheck.swift; sourceTree = "<group>"; };
+		37454AD355014630E29442AA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		3778F9A47D82C9E128C397D0 /* OChords.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = OChords.storekit; sourceTree = "<group>"; };
+		41504644A55ED8B8D5B1E1DD /* O Chords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "O Chords.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		43CAFAF8BF54D95BB4A8AF6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		47208F8C5E50FDCD0A80C00D /* PitchDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchDetector.swift; sourceTree = "<group>"; };
+		51BBF3BF0B48C5ADA82809A3 /* ChordListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordListener.swift; sourceTree = "<group>"; };
+		56C4EC631367E2E7A1C19492 /* Brand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brand.swift; sourceTree = "<group>"; };
+		59C40220B74A3E2EA8117248 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
+		6142ACB6A9BD8C8B1E7187AE /* Outfit.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Outfit.ttf; sourceTree = "<group>"; };
+		64960367D28BEBEA5BAC6A23 /* Zawgyi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zawgyi.swift; sourceTree = "<group>"; };
+		66C8AA12ADEF8FCB9DDF14E0 /* NotoSansMyanmar.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = NotoSansMyanmar.ttf; sourceTree = "<group>"; };
+		6961968A04F4871DDAEEE20C /* ToolScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolScreens.swift; sourceTree = "<group>"; };
+		7051D5166F9D05E91DE10181 /* SheetScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetScanner.swift; sourceTree = "<group>"; };
+		717F4D67D2885AB5A92F627D /* ChordLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordLibrary.swift; sourceTree = "<group>"; };
+		7322CA8BB880FC07C52ACAD5 /* ChordTheory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordTheory.swift; sourceTree = "<group>"; };
+		792217623502B70BC90F4C8C /* RemoteBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBackend.swift; sourceTree = "<group>"; };
+		8246A1301BB04520A07ADE0B /* ChordDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordDiagram.swift; sourceTree = "<group>"; };
+		9136AB85F0CDCA949F1A2CE5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		98ACE9C0E4A0280E55A8D82B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A583617669B3081986992411 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		A7AA1C19F1A164BDB4679CD2 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		AA4F9BBF5D5F12989F4BE930 /* JetBrainsMono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JetBrainsMono.ttf; sourceTree = "<group>"; };
+		B35698FA6665CB94E670B63D /* TunerChime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerChime.swift; sourceTree = "<group>"; };
+		B3C6167B7AB2FBC121410994 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		C0FE10BF3ACA79C8F00B09AF /* LyricLineEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricLineEditor.swift; sourceTree = "<group>"; };
+		C364AAC3FEB02D11C8DCC784 /* ImportScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportScreens.swift; sourceTree = "<group>"; };
+		C3BADF7888A0F8DFCD3A791D /* TuningSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningSession.swift; sourceTree = "<group>"; };
+		C6B21C1D7486D6B2678B777D /* OChords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OChords.entitlements; sourceTree = "<group>"; };
+		C8770F6C88DED46C4EB319E7 /* ExploreScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreScreens.swift; sourceTree = "<group>"; };
+		CA5B13AD78D50682F21DADF1 /* ChordFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordFollower.swift; sourceTree = "<group>"; };
+		CFCD3CC037EC0E7CC51793B8 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		D73D43D7C5E9BE9FB550E53A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D913B7B265E37BD45BFB76C3 /* ScanArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanArchive.swift; sourceTree = "<group>"; };
+		E5793344AAC3F2AFE6D69C70 /* ServerOCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerOCR.swift; sourceTree = "<group>"; };
+		E640C8EDFC4DE31A4872D955 /* SocialSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignIn.swift; sourceTree = "<group>"; };
+		EFA29E62A282B23034D54096 /* HandsFree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsFree.swift; sourceTree = "<group>"; };
+		F7A5729343D9BACD29EBBC79 /* CropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
+		FCD173B513A57A8ECFB7BB5D /* AdService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdService.swift; sourceTree = "<group>"; };
+		FE0AD9EC675013D77E180E20 /* ChordEstimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordEstimator.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		834B6C1074AF7E273DDBFABA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49D6C85DD312D93253D4F38C /* GoogleMobileAds in Frameworks */,
+				4A2292DC80775FDBB6EEA3B8 /* GoogleSignIn in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01173771528883F75FEC4853 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				41504644A55ED8B8D5B1E1DD /* O Chords.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0B3A60C59841572AAE6CFAE6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				315D08ED62624FF9CBC4683C /* SettingsScreens.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		11657C6A36014F955435D939 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				1A1BD1ABAD76BDE80EDD44C9 /* LibraryScreens.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		1E302D91EDFCFBAE77EDCF23 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				6961968A04F4871DDAEEE20C /* ToolScreens.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		33B2AA0468015428E493CE8C /* OChords */ = {
+			isa = PBXGroup;
+			children = (
+				D73D43D7C5E9BE9FB550E53A /* Info.plist */,
+				C6B21C1D7486D6B2678B777D /* OChords.entitlements */,
+				3778F9A47D82C9E128C397D0 /* OChords.storekit */,
+				52C0F751E78697C2E9E74346 /* App */,
+				D5CA3982708ED0F8E96A3D75 /* DesignSystem */,
+				9F677FCF7B84D13C39B153AC /* Features */,
+				DD07C32DC2CDE055139D0A7D /* Models */,
+				6DEB1957A44D5BC4B2DB47FD /* Resources */,
+				95652BB4742064EE80635277 /* Services */,
+			);
+			path = OChords;
+			sourceTree = "<group>";
+		};
+		385CEB031DCC94BC62E40DCA /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				F7A5729343D9BACD29EBBC79 /* CropView.swift */,
+				C364AAC3FEB02D11C8DCC784 /* ImportScreens.swift */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		4FD4BB2BCBF4A67F1E9EE10E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C0FE10BF3ACA79C8F00B09AF /* LyricLineEditor.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		52C0F751E78697C2E9E74346 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				37454AD355014630E29442AA /* AppState.swift */,
+				1C6ACCD9B55FD538072624D0 /* OChordsApp.swift */,
+				B3C6167B7AB2FBC121410994 /* Route.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6DEB1957A44D5BC4B2DB47FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				43CAFAF8BF54D95BB4A8AF6C /* Assets.xcassets */,
+				FCDF8740A1A77A7184E88033 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		791092167BD0DBF8BD795F11 /* Song */ = {
+			isa = PBXGroup;
+			children = (
+				202B2D89C8DEE2D8DA0805FC /* SongScreens.swift */,
+			);
+			path = Song;
+			sourceTree = "<group>";
+		};
+		7F75C7F6D572868DC401D171 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				C8770F6C88DED46C4EB319E7 /* ExploreScreens.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		95652BB4742064EE80635277 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FCD173B513A57A8ECFB7BB5D /* AdService.swift */,
+				98ACE9C0E4A0280E55A8D82B /* APIClient.swift */,
+				32D9FEB6E644B735562558CC /* ChordCheck.swift */,
+				FE0AD9EC675013D77E180E20 /* ChordEstimator.swift */,
+				CA5B13AD78D50682F21DADF1 /* ChordFollower.swift */,
+				717F4D67D2885AB5A92F627D /* ChordLibrary.swift */,
+				51BBF3BF0B48C5ADA82809A3 /* ChordListener.swift */,
+				2C5F6976391194738171CA53 /* ChordSheetParser.swift */,
+				7322CA8BB880FC07C52ACAD5 /* ChordTheory.swift */,
+				0C62B18234F0250565F611A1 /* GuestStore.swift */,
+				EFA29E62A282B23034D54096 /* HandsFree.swift */,
+				1A8E4E518F2B566531ED973F /* MicInput.swift */,
+				27AC252B41A3C18FB7A5B3F1 /* MockData.swift */,
+				47208F8C5E50FDCD0A80C00D /* PitchDetector.swift */,
+				792217623502B70BC90F4C8C /* RemoteBackend.swift */,
+				D913B7B265E37BD45BFB76C3 /* ScanArchive.swift */,
+				E5793344AAC3F2AFE6D69C70 /* ServerOCR.swift */,
+				A7AA1C19F1A164BDB4679CD2 /* Services.swift */,
+				7051D5166F9D05E91DE10181 /* SheetScanner.swift */,
+				E640C8EDFC4DE31A4872D955 /* SocialSignIn.swift */,
+				285C0FF803B2A86BAD4AC951 /* SongListener.swift */,
+				59C40220B74A3E2EA8117248 /* StoreService.swift */,
+				B35698FA6665CB94E670B63D /* TunerChime.swift */,
+				C3BADF7888A0F8DFCD3A791D /* TuningSession.swift */,
+				1F2AD872BAD13BD9978D66C0 /* VisionOCR.swift */,
+				64960367D28BEBEA5BAC6A23 /* Zawgyi.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9F677FCF7B84D13C39B153AC /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				7F75C7F6D572868DC401D171 /* Explore */,
+				385CEB031DCC94BC62E40DCA /* Import */,
+				D2D9C44EB4C6EF1836CFCA6B /* Learn */,
+				11657C6A36014F955435D939 /* Library */,
+				A5C303DC1BF1D07F54DDE8EF /* Onboarding */,
+				0B3A60C59841572AAE6CFAE6 /* Settings */,
+				4FD4BB2BCBF4A67F1E9EE10E /* Shared */,
+				791092167BD0DBF8BD795F11 /* Song */,
+				1E302D91EDFCFBAE77EDCF23 /* Tools */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A5C303DC1BF1D07F54DDE8EF /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				28A400374DE0B5AD1257D938 /* OnboardingScreens.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		B9E4D94C811B13F671CA76F4 = {
+			isa = PBXGroup;
+			children = (
+				33B2AA0468015428E493CE8C /* OChords */,
+				01173771528883F75FEC4853 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D2D9C44EB4C6EF1836CFCA6B /* Learn */ = {
+			isa = PBXGroup;
+			children = (
+				2F0232D38EB4C7B0F6379CE9 /* LearnScreens.swift */,
+			);
+			path = Learn;
+			sourceTree = "<group>";
+		};
+		D5CA3982708ED0F8E96A3D75 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				56C4EC631367E2E7A1C19492 /* Brand.swift */,
+				8246A1301BB04520A07ADE0B /* ChordDiagram.swift */,
+				CFCD3CC037EC0E7CC51793B8 /* Components.swift */,
+				9136AB85F0CDCA949F1A2CE5 /* Theme.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		DD07C32DC2CDE055139D0A7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A583617669B3081986992411 /* Models.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FCDF8740A1A77A7184E88033 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AA4F9BBF5D5F12989F4BE930 /* JetBrainsMono.ttf */,
+				66C8AA12ADEF8FCB9DDF14E0 /* NotoSansMyanmar.ttf */,
+				6142ACB6A9BD8C8B1E7187AE /* Outfit.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		510E8210E1835AE8812AC012 /* OChords */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C280313102059D2B484C495E /* Build configuration list for PBXNativeTarget "OChords" */;
+			buildPhases = (
+				A249C58A7BB348C0599B59B7 /* Sources */,
+				92AC4E6A8EA20C219E30201A /* Resources */,
+				834B6C1074AF7E273DDBFABA /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OChords;
+			packageProductDependencies = (
+				C1F92DD65B86FE6B1585AEC1 /* GoogleMobileAds */,
+				6C140719CFA60C231AD13765 /* GoogleSignIn */,
+			);
+			productName = OChords;
+			productReference = 41504644A55ED8B8D5B1E1DD /* O Chords.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D52255B1C3FA86E381E15298 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+			};
+			buildConfigurationList = 8F5F93FDB84FE7269C68889B /* Build configuration list for PBXProject "OChords" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = B9E4D94C811B13F671CA76F4;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				EFFF7E0A36CEB0B9F3911B99 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				FC320D341A8D5D4407303661 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 01173771528883F75FEC4853 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				510E8210E1835AE8812AC012 /* OChords */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92AC4E6A8EA20C219E30201A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF97DD0D4DD83855AD9764D3 /* Assets.xcassets in Resources */,
+				827B2987C311205FD3F91CB4 /* JetBrainsMono.ttf in Resources */,
+				06FEA0BB79C4206AD958BB19 /* NotoSansMyanmar.ttf in Resources */,
+				E4FEF0AE3961149DFB106D6D /* OChords.storekit in Resources */,
+				23EBAC3978C84EEF14D1A1F8 /* Outfit.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A249C58A7BB348C0599B59B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0CCB1D4553470D89E5137FAD /* APIClient.swift in Sources */,
+				270F48C8BB9D5C07CC44467D /* AdService.swift in Sources */,
+				78680F794A2FE0A800EBF7CD /* AppState.swift in Sources */,
+				FD7514F9831E39D08F8D211F /* Brand.swift in Sources */,
+				302CE6E59A9C61D2E51D05DE /* ChordCheck.swift in Sources */,
+				E28DDE57AE2C251AD3707CAE /* ChordDiagram.swift in Sources */,
+				A37B657FBED21286640D7DD2 /* ChordEstimator.swift in Sources */,
+				894F3253CCF7C647C604333D /* ChordFollower.swift in Sources */,
+				00B0BA568FCB644415B2FF18 /* ChordLibrary.swift in Sources */,
+				BC8A991A77C80894E693E2B1 /* ChordListener.swift in Sources */,
+				097B235B03B342AACA64740A /* ChordSheetParser.swift in Sources */,
+				8AAD397E82AB1CC3D410B0A7 /* ChordTheory.swift in Sources */,
+				BB42C8D8AAB9B4E183F384E8 /* Components.swift in Sources */,
+				C90E40741026C3A7CB22CA30 /* CropView.swift in Sources */,
+				706C3A3179CAB77112B3A897 /* ExploreScreens.swift in Sources */,
+				A2467133C829C76DAE240457 /* GuestStore.swift in Sources */,
+				BE5878455C60533337A6A9E3 /* HandsFree.swift in Sources */,
+				0C5813CE194FE12B89C49E02 /* ImportScreens.swift in Sources */,
+				1E98F24177EC270F6FC76B96 /* LearnScreens.swift in Sources */,
+				64068004725780639193CAA9 /* LibraryScreens.swift in Sources */,
+				060FC51FCB9A2124377DE928 /* LyricLineEditor.swift in Sources */,
+				21ABB177DEBC18162A777BE5 /* MicInput.swift in Sources */,
+				57838D1D1B84F5ED36D9556E /* MockData.swift in Sources */,
+				5139DF99F1A12EF78AF2977B /* Models.swift in Sources */,
+				3776782B941ED8B6594F326D /* OChordsApp.swift in Sources */,
+				AA577088A462C300318F1056 /* OnboardingScreens.swift in Sources */,
+				F7CB96B27AAD9FA9E9641B8E /* PitchDetector.swift in Sources */,
+				59D5A7C62789857D72E81E7F /* RemoteBackend.swift in Sources */,
+				0C808340396903A887F5401F /* Route.swift in Sources */,
+				A8D995638CC2294803E25227 /* ScanArchive.swift in Sources */,
+				B6EBF3B43334BAAD5712DA48 /* ServerOCR.swift in Sources */,
+				89A9446E585BC3C31B885B93 /* Services.swift in Sources */,
+				B48F3BCB9A36B94E9AB27C66 /* SettingsScreens.swift in Sources */,
+				84D6382A72F6AFCFA9989844 /* SheetScanner.swift in Sources */,
+				F59F6E6DB0D059B24F7EC89C /* SocialSignIn.swift in Sources */,
+				D9262661E5210033DB4BB9C1 /* SongListener.swift in Sources */,
+				1A520D5F0A065A4A360FDC45 /* SongScreens.swift in Sources */,
+				D277F964D9870A9383B04DE9 /* StoreService.swift in Sources */,
+				BD719D93CF6A855ECFA3AFF8 /* Theme.swift in Sources */,
+				E9636F0B5465578D368C6B16 /* ToolScreens.swift in Sources */,
+				A5E40EFFED4C90619F7D5CDE /* TunerChime.swift in Sources */,
+				C1FE50D1917386ECB3BA8889 /* TuningSession.swift in Sources */,
+				02F2C1217312FA16EDC390A6 /* VisionOCR.swift in Sources */,
+				72DAC360E58C47E63D83035E /* Zawgyi.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		59EFAF9C917DD8FB41F27C4E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OChords/OChords.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF72BHCH52;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OChords/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "O Chords";
+				INFOPLIST_KEY_NSCameraUsageDescription = "O Chords uses the camera to scan chord sheets, and the front camera to turn pages when you nod.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "O Chords connects to a development server on your local network.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "O Chords uses the microphone for the tuner, chord check, Listen, Follow me and voice page turns.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save chord diagrams to your photos.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "O Chords listens for “next”, “back” and “chorus” to turn pages in Stage when you choose voice page turns.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "With your permission, Google may use an advertising ID to show ads that fit you. Your songs and recordings are never shared.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OCHORDS_ADMOB_APP_ID = "";
+				OCHORDS_ADMOB_BANNER = "";
+				OCHORDS_ADMOB_INTERSTITIAL = "";
+				OCHORDS_ADMOB_REWARDED = "";
+				OCHORDS_API_URL = "";
+				OCHORDS_GOOGLE_CLIENT_ID = "";
+				OCHORDS_GOOGLE_URL_SCHEME = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onezcodes.ochords;
+				PRODUCT_NAME = "O Chords";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		755665D8E48AA148F1EF1ACD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		806231DD438839327045A1CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 0.1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		FED2990F163EE71CA31F0075 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = OChords/OChords.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = NF72BHCH52;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = OChords/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "O Chords";
+				INFOPLIST_KEY_NSCameraUsageDescription = "O Chords uses the camera to scan chord sheets, and the front camera to turn pages when you nod.";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "O Chords connects to a development server on your local network.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "O Chords uses the microphone for the tuner, chord check, Listen, Follow me and voice page turns.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Save chord diagrams to your photos.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "O Chords listens for “next”, “back” and “chorus” to turn pages in Stage when you choose voice page turns.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "With your permission, Google may use an advertising ID to show ads that fit you. Your songs and recordings are never shared.";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				OCHORDS_ADMOB_APP_ID = "ca-app-pub-3940256099942544~1458002511";
+				OCHORDS_ADMOB_BANNER = "ca-app-pub-3940256099942544/2435281174";
+				OCHORDS_ADMOB_INTERSTITIAL = "ca-app-pub-3940256099942544/4411468910";
+				OCHORDS_ADMOB_REWARDED = "ca-app-pub-3940256099942544/1712485313";
+				OCHORDS_API_URL = "http://Zeno-Macbook.local:8000/api/v1";
+				OCHORDS_GOOGLE_CLIENT_ID = "";
+				OCHORDS_GOOGLE_URL_SCHEME = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.onezcodes.ochords;
+				PRODUCT_NAME = "O Chords";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8F5F93FDB84FE7269C68889B /* Build configuration list for PBXProject "OChords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				806231DD438839327045A1CA /* Debug */,
+				755665D8E48AA148F1EF1ACD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C280313102059D2B484C495E /* Build configuration list for PBXNativeTarget "OChords" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FED2990F163EE71CA31F0075 /* Debug */,
+				59EFAF9C917DD8FB41F27C4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EFFF7E0A36CEB0B9F3911B99 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = exactVersion;
+				version = 13.11.0;
+			};
+		};
+		FC320D341A8D5D4407303661 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = exactVersion;
+				version = 10.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6C140719CFA60C231AD13765 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC320D341A8D5D4407303661 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		C1F92DD65B86FE6B1585AEC1 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EFFF7E0A36CEB0B9F3911B99 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = D52255B1C3FA86E381E15298 /* Project object */;
+}

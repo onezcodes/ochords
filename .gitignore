@@ -1,0 +1,13 @@
+# macOS
+.DS_Store
+
+# iOS / Xcode
+ios/build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+ios/Pods/
+
+# Local Claude settings
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
