@@ -8,6 +8,7 @@ Static multi-page site (Vite) for the product landing page, privacy, and support
 cd web
 npm install
 npm run dev          # http://localhost:5174
+npm test             # Vitest unit tests (jsdom)
 ```
 
 ## Build (required for `php artisan serve` home page)

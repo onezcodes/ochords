@@ -24,6 +24,9 @@ export default defineConfig(({ command }) => {
       port: 5174,
       open: true,
     },
+    test: {
+      environment: 'jsdom',
+    },
     plugins: [
       {
         name: 'ochords-html-paths',

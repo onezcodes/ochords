@@ -18,6 +18,21 @@ xcodebuild build -project OChords.xcodeproj -scheme OChords -destination 'platfo
   -clonedSourcePackagesDirPath build/SourcePackages -derivedDataPath build/DerivedData
 ```
 
+## Tests
+
+Unit tests live in `OChordsTests/` (outside the app sources) and cover pure logic: chord sheet parsing, theory/library, tuner session, Follow me, chord check, nod gestures, pitch/YIN, chord estimator, Zawgyi. Regenerate the project, then run:
+
+```sh
+cd ios
+xcodegen generate
+xcodebuild test -project OChords.xcodeproj -scheme OChords \
+  -destination 'platform=iOS Simulator,name=iPhone 17' \
+  -only-testing:OChordsTests \
+  -clonedSourcePackagesDirPath build/SourcePackages -derivedDataPath build/DerivedData
+```
+
+Pick any available iPhone simulator if `iPhone 17` isn’t installed (`xcrun simctl list devices available`).
+
 ## Layout
 
 ```

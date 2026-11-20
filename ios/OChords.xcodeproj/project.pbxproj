@@ -12,24 +12,32 @@
 		060FC51FCB9A2124377DE928 /* LyricLineEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0FE10BF3ACA79C8F00B09AF /* LyricLineEditor.swift */; };
 		06FEA0BB79C4206AD958BB19 /* NotoSansMyanmar.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 66C8AA12ADEF8FCB9DDF14E0 /* NotoSansMyanmar.ttf */; };
 		097B235B03B342AACA64740A /* ChordSheetParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F6976391194738171CA53 /* ChordSheetParser.swift */; };
+		0A2A4AF75875521BC7A11AFE /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B27358520890B930C059A317 /* Helpers.swift */; };
 		0C5813CE194FE12B89C49E02 /* ImportScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = C364AAC3FEB02D11C8DCC784 /* ImportScreens.swift */; };
 		0C808340396903A887F5401F /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3C6167B7AB2FBC121410994 /* Route.swift */; };
 		0CCB1D4553470D89E5137FAD /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98ACE9C0E4A0280E55A8D82B /* APIClient.swift */; };
 		1A520D5F0A065A4A360FDC45 /* SongScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 202B2D89C8DEE2D8DA0805FC /* SongScreens.swift */; };
 		1E98F24177EC270F6FC76B96 /* LearnScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0232D38EB4C7B0F6379CE9 /* LearnScreens.swift */; };
+		20E83838341D1246B335FDB2 /* ChordFollowerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF095FF615B2A0B940BB0A47 /* ChordFollowerTests.swift */; };
 		21ABB177DEBC18162A777BE5 /* MicInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8E4E518F2B566531ED973F /* MicInput.swift */; };
 		23EBAC3978C84EEF14D1A1F8 /* Outfit.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6142ACB6A9BD8C8B1E7187AE /* Outfit.ttf */; };
+		25EAE8B3CB435530821565CD /* TuningSessionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F04F0DF15E34DB5DF7023F5 /* TuningSessionTests.swift */; };
 		270F48C8BB9D5C07CC44467D /* AdService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD173B513A57A8ECFB7BB5D /* AdService.swift */; };
+		2B06AC253C8F167DA7A5238B /* HandsFreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EEE015E280BFACF36A9AD8F /* HandsFreeTests.swift */; };
 		302CE6E59A9C61D2E51D05DE /* ChordCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D9FEB6E644B735562558CC /* ChordCheck.swift */; };
+		304D786451147D7A5C42B9C3 /* ChordEstimatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67118BAA600687046D1605B /* ChordEstimatorTests.swift */; };
+		33E03E71B4DD026E4A5161B4 /* ChordSheetParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E69DC14EABB6A73307FEC397 /* ChordSheetParserTests.swift */; };
 		3776782B941ED8B6594F326D /* OChordsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6ACCD9B55FD538072624D0 /* OChordsApp.swift */; };
 		49D6C85DD312D93253D4F38C /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = C1F92DD65B86FE6B1585AEC1 /* GoogleMobileAds */; };
 		4A2292DC80775FDBB6EEA3B8 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 6C140719CFA60C231AD13765 /* GoogleSignIn */; };
 		5139DF99F1A12EF78AF2977B /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = A583617669B3081986992411 /* Models.swift */; };
 		57838D1D1B84F5ED36D9556E /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AC252B41A3C18FB7A5B3F1 /* MockData.swift */; };
+		59367582C995CAD403154B38 /* ChordLibraryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A242B6563DFB5C670865FE /* ChordLibraryTests.swift */; };
 		59D5A7C62789857D72E81E7F /* RemoteBackend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 792217623502B70BC90F4C8C /* RemoteBackend.swift */; };
 		64068004725780639193CAA9 /* LibraryScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1BD1ABAD76BDE80EDD44C9 /* LibraryScreens.swift */; };
 		706C3A3179CAB77112B3A897 /* ExploreScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8770F6C88DED46C4EB319E7 /* ExploreScreens.swift */; };
 		72DAC360E58C47E63D83035E /* Zawgyi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64960367D28BEBEA5BAC6A23 /* Zawgyi.swift */; };
+		77738A104E50D9D2F392AE0C /* ChordTheoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90048E714ADB534E145953E5 /* ChordTheoryTests.swift */; };
 		78680F794A2FE0A800EBF7CD /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37454AD355014630E29442AA /* AppState.swift */; };
 		827B2987C311205FD3F91CB4 /* JetBrainsMono.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AA4F9BBF5D5F12989F4BE930 /* JetBrainsMono.ttf */; };
 		84D6382A72F6AFCFA9989844 /* SheetScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7051D5166F9D05E91DE10181 /* SheetScanner.swift */; };
@@ -43,11 +51,13 @@
 		AA577088A462C300318F1056 /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A400374DE0B5AD1257D938 /* OnboardingScreens.swift */; };
 		B48F3BCB9A36B94E9AB27C66 /* SettingsScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315D08ED62624FF9CBC4683C /* SettingsScreens.swift */; };
 		B6EBF3B43334BAAD5712DA48 /* ServerOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5793344AAC3F2AFE6D69C70 /* ServerOCR.swift */; };
+		B74D96C32BD3C9D4FA7A2BF9 /* ZawgyiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 351483683F4E84C6DB5C5153 /* ZawgyiTests.swift */; };
 		BB42C8D8AAB9B4E183F384E8 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCD3CC037EC0E7CC51793B8 /* Components.swift */; };
 		BC8A991A77C80894E693E2B1 /* ChordListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BBF3BF0B48C5ADA82809A3 /* ChordListener.swift */; };
 		BD719D93CF6A855ECFA3AFF8 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9136AB85F0CDCA949F1A2CE5 /* Theme.swift */; };
 		BE5878455C60533337A6A9E3 /* HandsFree.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFA29E62A282B23034D54096 /* HandsFree.swift */; };
 		C1FE50D1917386ECB3BA8889 /* TuningSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3BADF7888A0F8DFCD3A791D /* TuningSession.swift */; };
+		C620F4878DEDDFEC2DD4DAE2 /* PitchDetectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BB8B3DA29FD283D02662EA /* PitchDetectorTests.swift */; };
 		C90E40741026C3A7CB22CA30 /* CropView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A5729343D9BACD29EBBC79 /* CropView.swift */; };
 		CF97DD0D4DD83855AD9764D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43CAFAF8BF54D95BB4A8AF6C /* Assets.xcassets */; };
 		D277F964D9870A9383B04DE9 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59C40220B74A3E2EA8117248 /* StoreService.swift */; };
@@ -55,16 +65,29 @@
 		E28DDE57AE2C251AD3707CAE /* ChordDiagram.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8246A1301BB04520A07ADE0B /* ChordDiagram.swift */; };
 		E4FEF0AE3961149DFB106D6D /* OChords.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 3778F9A47D82C9E128C397D0 /* OChords.storekit */; };
 		E9636F0B5465578D368C6B16 /* ToolScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6961968A04F4871DDAEEE20C /* ToolScreens.swift */; };
+		F458D9EA3B2ED81011811867 /* ChordCheckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFCBFD03465B4B8B586E3049 /* ChordCheckTests.swift */; };
 		F59F6E6DB0D059B24F7EC89C /* SocialSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = E640C8EDFC4DE31A4872D955 /* SocialSignIn.swift */; };
 		F7CB96B27AAD9FA9E9641B8E /* PitchDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47208F8C5E50FDCD0A80C00D /* PitchDetector.swift */; };
 		FD7514F9831E39D08F8D211F /* Brand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C4EC631367E2E7A1C19492 /* Brand.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		54F35F4002357F6A14003253 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D52255B1C3FA86E381E15298 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 510E8210E1835AE8812AC012;
+			remoteInfo = OChords;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		0C62B18234F0250565F611A1 /* GuestStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestStore.swift; sourceTree = "<group>"; };
+		14A242B6563DFB5C670865FE /* ChordLibraryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordLibraryTests.swift; sourceTree = "<group>"; };
 		1A1BD1ABAD76BDE80EDD44C9 /* LibraryScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryScreens.swift; sourceTree = "<group>"; };
 		1A8E4E518F2B566531ED973F /* MicInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MicInput.swift; sourceTree = "<group>"; };
 		1C6ACCD9B55FD538072624D0 /* OChordsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OChordsApp.swift; sourceTree = "<group>"; };
+		1EEE015E280BFACF36A9AD8F /* HandsFreeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsFreeTests.swift; sourceTree = "<group>"; };
 		1F2AD872BAD13BD9978D66C0 /* VisionOCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionOCR.swift; sourceTree = "<group>"; };
 		202B2D89C8DEE2D8DA0805FC /* SongScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongScreens.swift; sourceTree = "<group>"; };
 		27AC252B41A3C18FB7A5B3F1 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
@@ -74,9 +97,11 @@
 		2F0232D38EB4C7B0F6379CE9 /* LearnScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearnScreens.swift; sourceTree = "<group>"; };
 		315D08ED62624FF9CBC4683C /* SettingsScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreens.swift; sourceTree = "<group>"; };
 		32D9FEB6E644B735562558CC /* ChordCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCheck.swift; sourceTree = "<group>"; };
+		351483683F4E84C6DB5C5153 /* ZawgyiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZawgyiTests.swift; sourceTree = "<group>"; };
+		35BB8B3DA29FD283D02662EA /* PitchDetectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchDetectorTests.swift; sourceTree = "<group>"; };
 		37454AD355014630E29442AA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		3778F9A47D82C9E128C397D0 /* OChords.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = OChords.storekit; sourceTree = "<group>"; };
-		41504644A55ED8B8D5B1E1DD /* O Chords.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "O Chords.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3778F9A47D82C9E128C397D0 /* OChords.storekit */ = {isa = PBXFileReference; path = OChords.storekit; sourceTree = "<group>"; };
+		41504644A55ED8B8D5B1E1DD /* OChords.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = OChords.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43CAFAF8BF54D95BB4A8AF6C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47208F8C5E50FDCD0A80C00D /* PitchDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchDetector.swift; sourceTree = "<group>"; };
 		51BBF3BF0B48C5ADA82809A3 /* ChordListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordListener.swift; sourceTree = "<group>"; };
@@ -91,25 +116,33 @@
 		7322CA8BB880FC07C52ACAD5 /* ChordTheory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordTheory.swift; sourceTree = "<group>"; };
 		792217623502B70BC90F4C8C /* RemoteBackend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteBackend.swift; sourceTree = "<group>"; };
 		8246A1301BB04520A07ADE0B /* ChordDiagram.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordDiagram.swift; sourceTree = "<group>"; };
+		8F04F0DF15E34DB5DF7023F5 /* TuningSessionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningSessionTests.swift; sourceTree = "<group>"; };
+		90048E714ADB534E145953E5 /* ChordTheoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordTheoryTests.swift; sourceTree = "<group>"; };
 		9136AB85F0CDCA949F1A2CE5 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		98ACE9C0E4A0280E55A8D82B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		A583617669B3081986992411 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		A7AA1C19F1A164BDB4679CD2 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		AA4F9BBF5D5F12989F4BE930 /* JetBrainsMono.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = JetBrainsMono.ttf; sourceTree = "<group>"; };
+		B27358520890B930C059A317 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		B35698FA6665CB94E670B63D /* TunerChime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunerChime.swift; sourceTree = "<group>"; };
 		B3C6167B7AB2FBC121410994 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
+		B788A0AEB97343DF6B05A16A /* OChordsTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = OChordsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0FE10BF3ACA79C8F00B09AF /* LyricLineEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LyricLineEditor.swift; sourceTree = "<group>"; };
 		C364AAC3FEB02D11C8DCC784 /* ImportScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportScreens.swift; sourceTree = "<group>"; };
 		C3BADF7888A0F8DFCD3A791D /* TuningSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningSession.swift; sourceTree = "<group>"; };
 		C6B21C1D7486D6B2678B777D /* OChords.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OChords.entitlements; sourceTree = "<group>"; };
 		C8770F6C88DED46C4EB319E7 /* ExploreScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreScreens.swift; sourceTree = "<group>"; };
 		CA5B13AD78D50682F21DADF1 /* ChordFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordFollower.swift; sourceTree = "<group>"; };
+		CFCBFD03465B4B8B586E3049 /* ChordCheckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordCheckTests.swift; sourceTree = "<group>"; };
 		CFCD3CC037EC0E7CC51793B8 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		D73D43D7C5E9BE9FB550E53A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D913B7B265E37BD45BFB76C3 /* ScanArchive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanArchive.swift; sourceTree = "<group>"; };
+		DF095FF615B2A0B940BB0A47 /* ChordFollowerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordFollowerTests.swift; sourceTree = "<group>"; };
 		E5793344AAC3F2AFE6D69C70 /* ServerOCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerOCR.swift; sourceTree = "<group>"; };
 		E640C8EDFC4DE31A4872D955 /* SocialSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialSignIn.swift; sourceTree = "<group>"; };
+		E69DC14EABB6A73307FEC397 /* ChordSheetParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordSheetParserTests.swift; sourceTree = "<group>"; };
 		EFA29E62A282B23034D54096 /* HandsFree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandsFree.swift; sourceTree = "<group>"; };
+		F67118BAA600687046D1605B /* ChordEstimatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordEstimatorTests.swift; sourceTree = "<group>"; };
 		F7A5729343D9BACD29EBBC79 /* CropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
 		FCD173B513A57A8ECFB7BB5D /* AdService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdService.swift; sourceTree = "<group>"; };
 		FE0AD9EC675013D77E180E20 /* ChordEstimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChordEstimator.swift; sourceTree = "<group>"; };
@@ -131,7 +164,8 @@
 		01173771528883F75FEC4853 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				41504644A55ED8B8D5B1E1DD /* O Chords.app */,
+				41504644A55ED8B8D5B1E1DD /* OChords.app */,
+				B788A0AEB97343DF6B05A16A /* OChordsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -289,8 +323,27 @@
 			isa = PBXGroup;
 			children = (
 				33B2AA0468015428E493CE8C /* OChords */,
+				C719B027F49D635BD54FEE07 /* OChordsTests */,
 				01173771528883F75FEC4853 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		C719B027F49D635BD54FEE07 /* OChordsTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFCBFD03465B4B8B586E3049 /* ChordCheckTests.swift */,
+				F67118BAA600687046D1605B /* ChordEstimatorTests.swift */,
+				DF095FF615B2A0B940BB0A47 /* ChordFollowerTests.swift */,
+				14A242B6563DFB5C670865FE /* ChordLibraryTests.swift */,
+				E69DC14EABB6A73307FEC397 /* ChordSheetParserTests.swift */,
+				90048E714ADB534E145953E5 /* ChordTheoryTests.swift */,
+				1EEE015E280BFACF36A9AD8F /* HandsFreeTests.swift */,
+				B27358520890B930C059A317 /* Helpers.swift */,
+				35BB8B3DA29FD283D02662EA /* PitchDetectorTests.swift */,
+				8F04F0DF15E34DB5DF7023F5 /* TuningSessionTests.swift */,
+				351483683F4E84C6DB5C5153 /* ZawgyiTests.swift */,
+			);
+			path = OChordsTests;
 			sourceTree = "<group>";
 		};
 		D2D9C44EB4C6EF1836CFCA6B /* Learn */ = {
@@ -351,8 +404,26 @@
 				6C140719CFA60C231AD13765 /* GoogleSignIn */,
 			);
 			productName = OChords;
-			productReference = 41504644A55ED8B8D5B1E1DD /* O Chords.app */;
+			productReference = 41504644A55ED8B8D5B1E1DD /* OChords.app */;
 			productType = "com.apple.product-type.application";
+		};
+		BC16C7114C82737D14B7EE96 /* OChordsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD5A84FF57C012D2B2A15B16 /* Build configuration list for PBXNativeTarget "OChordsTests" */;
+			buildPhases = (
+				3AC41BC399409EA85A7DB05F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC6D15A784FBB65E748F44B2 /* PBXTargetDependency */,
+			);
+			name = OChordsTests;
+			packageProductDependencies = (
+			);
+			productName = OChordsTests;
+			productReference = B788A0AEB97343DF6B05A16A /* OChordsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -362,6 +433,14 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					510E8210E1835AE8812AC012 = {
+						DevelopmentTeam = "";
+					};
+					BC16C7114C82737D14B7EE96 = {
+						DevelopmentTeam = "";
+					};
+				};
 			};
 			buildConfigurationList = 8F5F93FDB84FE7269C68889B /* Build configuration list for PBXProject "OChords" */;
 			developmentRegion = en;
@@ -382,6 +461,7 @@
 			projectRoot = "";
 			targets = (
 				510E8210E1835AE8812AC012 /* OChords */,
+				BC16C7114C82737D14B7EE96 /* OChordsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -402,6 +482,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3AC41BC399409EA85A7DB05F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F458D9EA3B2ED81011811867 /* ChordCheckTests.swift in Sources */,
+				304D786451147D7A5C42B9C3 /* ChordEstimatorTests.swift in Sources */,
+				20E83838341D1246B335FDB2 /* ChordFollowerTests.swift in Sources */,
+				59367582C995CAD403154B38 /* ChordLibraryTests.swift in Sources */,
+				33E03E71B4DD026E4A5161B4 /* ChordSheetParserTests.swift in Sources */,
+				77738A104E50D9D2F392AE0C /* ChordTheoryTests.swift in Sources */,
+				2B06AC253C8F167DA7A5238B /* HandsFreeTests.swift in Sources */,
+				0A2A4AF75875521BC7A11AFE /* Helpers.swift in Sources */,
+				C620F4878DEDDFEC2DD4DAE2 /* PitchDetectorTests.swift in Sources */,
+				25EAE8B3CB435530821565CD /* TuningSessionTests.swift in Sources */,
+				B74D96C32BD3C9D4FA7A2BF9 /* ZawgyiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A249C58A7BB348C0599B59B7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,6 +553,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DC6D15A784FBB65E748F44B2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 510E8210E1835AE8812AC012 /* OChords */;
+			targetProxy = 54F35F4002357F6A14003253 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		59EFAF9C917DD8FB41F27C4E /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -462,7 +568,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OChords/OChords.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = NF72BHCH52;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OChords/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "O Chords";
@@ -486,9 +591,27 @@
 				OCHORDS_GOOGLE_CLIENT_ID = "";
 				OCHORDS_GOOGLE_URL_SCHEME = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.onezcodes.ochords;
+				PRODUCT_MODULE_NAME = OChords;
 				PRODUCT_NAME = "O Chords";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		5F01455E9D34FF5283E54561 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onezcodes.ochords.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/O Chords.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/O Chords";
 			};
 			name = Release;
 		};
@@ -617,13 +740,29 @@
 			};
 			name = Debug;
 		};
+		867BB3A873B19E0D83E4980D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.onezcodes.ochords.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/O Chords.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/O Chords";
+			};
+			name = Debug;
+		};
 		FED2990F163EE71CA31F0075 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = OChords/OChords.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = NF72BHCH52;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = OChords/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "O Chords";
@@ -647,6 +786,7 @@
 				OCHORDS_GOOGLE_CLIENT_ID = "";
 				OCHORDS_GOOGLE_URL_SCHEME = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.onezcodes.ochords;
+				PRODUCT_MODULE_NAME = OChords;
 				PRODUCT_NAME = "O Chords";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -670,6 +810,15 @@
 			buildConfigurations = (
 				FED2990F163EE71CA31F0075 /* Debug */,
 				59EFAF9C917DD8FB41F27C4E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FD5A84FF57C012D2B2A15B16 /* Build configuration list for PBXNativeTarget "OChordsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				867BB3A873B19E0D83E4980D /* Debug */,
+				5F01455E9D34FF5283E54561 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
