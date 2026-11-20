@@ -18,8 +18,14 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        // API only: a missing or expired token is a JSON 401, never a redirect to a login page.
-        $middleware->redirectGuestsTo(fn () => null);
+        // API: JSON 401 with no redirect. Web/Filament: send guests to the admin login.
+        $middleware->redirectGuestsTo(function (Request $request) {
+            if ($request->is('api') || $request->is('api/*')) {
+                return null;
+            }
+
+            return route('filament.admin.auth.login');
+        });
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         // The app falls back to reading on the phone when it sees a 503 from /scans.

@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Moderation, driven from artisan only (no admin HTTP surface). Hiding a sheet takes it off Explore by
+ * Moderation for artisan commands and the Filament /admin panel. Hiding a sheet takes it off Explore by
  * making it private; the owner keeps it, and everyone involved hears about it through in-app notifications.
  */
 class ModerationService
 {
+    public function __construct(private readonly AdminAuditService $audit) {}
+
     /**
      * Open reports, oldest first, each with how many open reports its song has (`song_reports_count`).
      *
@@ -34,27 +36,38 @@ class ModerationService
     }
 
     /** Closes one report. Hiding also hides the song and closes its other open reports as hidden. */
-    public function resolve(Report $report, ReportResolution $resolution): void
+    public function resolve(Report $report, ReportResolution $resolution, ?string $note = null): void
     {
         if ($resolution === ReportResolution::Hidden) {
             $song = $report->song;
             if ($song) {
-                $this->hideSheet($song);
+                $this->hideSheet($song, $note);
 
                 return;
             }
         }
         $this->close($report, $resolution);
+        $this->audit->log('report.resolved', $report, [
+            'resolution' => $resolution->value,
+            'song_id' => $report->song_id,
+        ]);
     }
 
     /** Takes a sheet off Explore (private), notifies its owner and anyone who reported it. */
-    public function hideSheet(Song $song): void
+    public function hideSheet(Song $song, ?string $note = null): void
     {
         $openReports = Report::query()->open()->where('song_id', $song->id)->get();
 
-        DB::transaction(function () use ($song, $openReports) {
+        DB::transaction(function () use ($song, $openReports, $note) {
+            $attrs = [];
             if ($song->is_public) {
-                $song->forceFill(['is_public' => false])->save();
+                $attrs['is_public'] = false;
+            }
+            if ($note !== null && $note !== '') {
+                $attrs['moderation_note'] = $note;
+            }
+            if ($attrs !== []) {
+                $song->forceFill($attrs)->save();
             }
             foreach ($openReports as $report) {
                 $this->close($report, ReportResolution::Hidden);
@@ -66,6 +79,42 @@ class ModerationService
             $this->notify((int) $reporterId, 'Report update:', 'the sheet you reported was hidden. Thanks for keeping O Chords tidy.', 'checkmark');
         }
         Log::info('moderation.sheet_hidden', ['song_id' => $song->id, 'reports' => $openReports->count()]);
+        $this->audit->log('sheet.hidden', $song, ['open_reports' => $openReports->count()]);
+    }
+
+    /** Puts a private sheet back on Explore and notifies its owner. */
+    public function unhideSheet(Song $song, ?string $note = null): void
+    {
+        if ($song->is_public) {
+            return;
+        }
+
+        $attrs = ['is_public' => true];
+        if ($note !== null && $note !== '') {
+            $attrs['moderation_note'] = $note;
+        }
+        $song->forceFill($attrs)->save();
+        $this->notify($song->user_id, 'Sheet restored:', "“{$song->title}” is back on Explore.", 'eye');
+        Log::info('moderation.sheet_unhidden', ['song_id' => $song->id]);
+        $this->audit->log('sheet.unhidden', $song);
+    }
+
+    public function featureSheet(Song $song): void
+    {
+        if ($song->featured_at !== null) {
+            return;
+        }
+        $song->forceFill(['featured_at' => now(), 'is_public' => true])->save();
+        $this->audit->log('sheet.featured', $song);
+    }
+
+    public function unfeatureSheet(Song $song): void
+    {
+        if ($song->featured_at === null) {
+            return;
+        }
+        $song->forceFill(['featured_at' => null])->save();
+        $this->audit->log('sheet.unfeatured', $song);
     }
 
     private function close(Report $report, ReportResolution $resolution): void

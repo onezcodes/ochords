@@ -2,9 +2,15 @@
 
 namespace App\Providers;
 
+use App\Policies\PermissionPolicy;
+use App\Policies\RolePolicy;
 use App\Services\Ocr\DisabledOcr;
 use App\Services\Ocr\GoogleVisionOcr;
 use App\Services\Ocr\OcrEngine;
+use App\Services\Play\DisabledGooglePlayVerifier;
+use App\Services\Play\GooglePlayAccessToken;
+use App\Services\Play\GooglePlayVerifier;
+use App\Services\Play\HttpGooglePlayVerifier;
 use App\Services\Social\JwksSocialTokenVerifier;
 use App\Services\Social\SocialTokenVerifier;
 use App\Services\StoreKit\AppleTransactionVerifier;
@@ -13,8 +19,12 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
+use Laravel\Telescope\TelescopeApplicationServiceProvider;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +38,12 @@ class AppServiceProvider extends ServiceProvider
 
     public function register(): void
     {
+        // Telescope is require-dev — only register when the package is present (local/staging installs).
+        if (class_exists(TelescopeApplicationServiceProvider::class)) {
+            $this->app->register(\Laravel\Telescope\TelescopeServiceProvider::class);
+            $this->app->register(TelescopeServiceProvider::class);
+        }
+
         // Google Cloud Vision when configured with a key; otherwise scans are read on the phone only.
         $this->app->bind(OcrEngine::class, function () {
             $key = (string) config('services.google_vision.key');
@@ -41,6 +57,26 @@ class AppServiceProvider extends ServiceProvider
         // the providers' published keys. Tests bind fakes for both.
         $this->app->bind(SocialTokenVerifier::class, JwksSocialTokenVerifier::class);
         $this->app->singleton(TransactionVerifier::class, fn () => new AppleTransactionVerifier(resource_path('certs/AppleRootCA-G3.pem')));
+
+        $this->app->singleton(GooglePlayAccessToken::class);
+        $this->app->bind(GooglePlayVerifier::class, function ($app) {
+            $package = (string) config('services.google_play.package_name');
+            if ($package === '') {
+                return new DisabledGooglePlayVerifier;
+            }
+
+            try {
+                $token = $app->make(GooglePlayAccessToken::class)->resolve();
+            } catch (\Throwable) {
+                return new DisabledGooglePlayVerifier;
+            }
+
+            if ($token === '') {
+                return new DisabledGooglePlayVerifier;
+            }
+
+            return new HttpGooglePlayVerifier($package, $token);
+        });
     }
 
     public function boot(): void
@@ -50,6 +86,10 @@ class AppServiceProvider extends ServiceProvider
 
         // Plain JSON objects and arrays (no { "data": … } envelope), as the app's decoders expect.
         JsonResource::withoutWrapping();
+
+        // Spatie models aren't App\Models\* — register Filament policies explicitly.
+        Gate::policy(Role::class, RolePolicy::class);
+        Gate::policy(Permission::class, PermissionPolicy::class);
 
         $this->configureRateLimits();
     }

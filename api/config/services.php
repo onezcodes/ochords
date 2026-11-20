@@ -41,6 +41,22 @@ return [
         'jwks_url' => 'https://www.googleapis.com/oauth2/v3/certs',
     ],
 
+    /*
+    | Google Play Billing Pro verification (Android).
+    | Set package name + a short-lived OAuth access token (or wire a service-account token refresher).
+    | Until both are set, Android sync returns 422 and Pro stays on-device.
+    */
+    'google_play' => [
+        'package_name' => env('OCHORDS_PLAY_PACKAGE_NAME', ''),
+        // Optional short-lived token; prefer service_account_json for automatic refresh.
+        'access_token' => env('OCHORDS_PLAY_ACCESS_TOKEN', ''),
+        // Path to a Play Console service-account JSON key (absolute or relative to api/).
+        'service_account_json' => env('OCHORDS_PLAY_SERVICE_ACCOUNT_JSON', ''),
+        'pro_products' => array_values(array_filter(array_map('trim', explode(',',
+            (string) env('OCHORDS_PLAY_PRO_PRODUCTS', env('OCHORDS_PRO_PRODUCTS', 'com.onezcodes.ochords.pro.monthly,com.onezcodes.ochords.pro.yearly')),
+        )))),
+    ],
+
     'postmark' => [
         'key' => env('POSTMARK_API_KEY'),
     ],

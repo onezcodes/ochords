@@ -21,7 +21,7 @@ Artisan::command('ochords:purge-old-records', function (CommunityService $commun
 Schedule::command('ochords:purge-deleted-accounts')->dailyAt('03:00')->withoutOverlapping();
 Schedule::command('ochords:purge-old-records')->dailyAt('03:30')->withoutOverlapping();
 
-// Moderation runs from the console only — there is no admin HTTP surface.
+// Moderation CLI fallback (same ModerationService as Filament /admin).
 
 Artisan::command('ochords:reports {--detail : Show the reporter’s free text (personal data — don’t paste it elsewhere)}', function (ModerationService $moderation) {
     $reports = $moderation->openReports();
@@ -78,3 +78,16 @@ Artisan::command('ochords:sheets:hide {songId : Song ID}', function (ModerationS
 
     return 0;
 })->purpose('Take a sheet off Explore (private) and resolve its open reports');
+
+Artisan::command('ochords:sheets:unhide {songId : Song ID}', function (ModerationService $moderation) {
+    $song = Song::query()->find($this->argument('songId'));
+    if (! $song) {
+        $this->error('No sheet with that ID.');
+
+        return 1;
+    }
+    $moderation->unhideSheet($song);
+    $this->info("Sheet {$song->id} is public again.");
+
+    return 0;
+})->purpose('Put a private sheet back on Explore');

@@ -83,6 +83,27 @@ class ModerationTest extends TestCase
         $this->assertSame(1, AppNotification::query()->where('user_id', $song->user_id)->count());
     }
 
+    public function test_sheets_unhide_restores_public_and_notifies_owner(): void
+    {
+        $song = Song::factory()->create(['is_public' => false]);
+
+        $this->artisan("ochords:sheets:unhide {$song->id}")->assertSuccessful();
+        $this->artisan('ochords:sheets:unhide nope')->assertFailed();
+
+        $this->assertTrue($song->fresh()?->is_public);
+        $this->assertSame(1, AppNotification::query()->where('user_id', $song->user_id)->where('title', 'Sheet restored:')->count());
+    }
+
+    public function test_unhide_is_noop_when_already_public(): void
+    {
+        $song = Song::factory()->public()->create();
+
+        $this->artisan("ochords:sheets:unhide {$song->id}")->assertSuccessful();
+
+        $this->assertTrue($song->fresh()?->is_public);
+        $this->assertSame(0, AppNotification::query()->count());
+    }
+
     private function report(Song $song, string $detail): Report
     {
         $report = new Report(['song_id' => $song->id, 'reason' => 'offensive', 'detail' => $detail]);

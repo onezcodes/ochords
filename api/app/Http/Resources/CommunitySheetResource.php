@@ -22,6 +22,8 @@ class CommunitySheetResource extends JsonResource
             'votes' => (int) ($this->saves_count ?? 0),
             'comments' => $this->comments_count,
             'difficulty' => $this->difficulty,
+            // Extra key: older clients ignore unknown fields; newer clients can pin featured sheets.
+            'isFeatured' => $this->resource->featured_at !== null,
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class SyncSubscriptionRequest extends FormRequest
 {
@@ -10,8 +11,18 @@ class SyncSubscriptionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // StoreKit 2 `Transaction.jwsRepresentation`: three base64url segments, a few KB with its x5c chain.
-            'transactionJWS' => ['required', 'string', 'max:16384', 'regex:/^[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+$/'],
+            'platform' => ['sometimes', 'string', Rule::in(['ios', 'android'])],
+            // StoreKit 2 (iOS)
+            'transactionJWS' => [
+                'required_without:purchaseToken',
+                'nullable',
+                'string',
+                'max:16384',
+                'regex:/^[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+\.[A-Za-z0-9\-_]+$/',
+            ],
+            // Google Play Billing (Android)
+            'purchaseToken' => ['required_without:transactionJWS', 'nullable', 'string', 'max:4096'],
+            'productId' => ['required_with:purchaseToken', 'nullable', 'string', 'max:255'],
         ];
     }
 }

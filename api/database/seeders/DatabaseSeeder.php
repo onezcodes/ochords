@@ -8,12 +8,14 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // The learning path is content every environment needs.
+        // Staff roles/permissions and the learning path are needed in every environment.
+        $this->call(RolesAndPermissionsSeeder::class);
         $this->call(LearnPathSeeder::class);
 
         if (app()->isProduction()) {
             return;
         }
+        $this->call(StaffSeeder::class);
         $this->call(DemoSeeder::class);
     }
 }

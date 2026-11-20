@@ -29,7 +29,25 @@ class ScanService
     /** @return list<OcrLine> */
     public function read(User $user, string $image): array
     {
-        $this->countTowardsDailyLimit($user);
+        return $this->run($user, $image, applyDailyLimit: true);
+    }
+
+    /**
+     * Staff import from /admin: still counts toward the monthly OCR budget, but not the per-player daily cap.
+     *
+     * @return list<OcrLine>
+     */
+    public function readForStaff(User $user, string $image): array
+    {
+        return $this->run($user, $image, applyDailyLimit: false);
+    }
+
+    /** @return list<OcrLine> */
+    private function run(User $user, string $image, bool $applyDailyLimit): array
+    {
+        if ($applyDailyLimit) {
+            $this->countTowardsDailyLimit($user);
+        }
         $this->countTowardsMonthlyLimit();
 
         $started = microtime(true);
@@ -39,6 +57,7 @@ class ScanService
             'engine' => $this->ocr->name(),
             'lines' => count($lines),
             'ms' => (int) ((microtime(true) - $started) * 1000),
+            'staff' => ! $applyDailyLimit,
         ]);
 
         return $lines;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AppStoreWebhookController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CommunityController;
 use App\Http\Controllers\Api\ExploreController;
@@ -34,6 +35,11 @@ Route::prefix('v1')->name('api.')->middleware('throttle:api')->group(function ()
     Route::get('learn/path', [LearnController::class, 'path'])->name('learn.path');
     Route::get('learn/frets/{fret}/questions', [LearnController::class, 'questions'])->name('learn.questions');
     Route::post('feedback', [CommunityController::class, 'feedback'])->middleware('throttle:writes')->name('feedback.store');
+
+    // App Store Server Notifications V2 (no Sanctum — Apple signs the payload).
+    Route::post('webhooks/app-store', AppStoreWebhookController::class)
+        ->middleware('throttle:api')
+        ->name('webhooks.app-store');
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('auth/sign-out', [AuthController::class, 'signOut'])->name('auth.sign-out');

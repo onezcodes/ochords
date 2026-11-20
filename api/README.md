@@ -19,6 +19,16 @@ php artisan migrate --seed          # learning path + synthetic demo data
 php artisan serve --host=0.0.0.0    # on your Wi-Fi too, so a real iPhone can reach it (plain `php artisan serve` = this Mac only)
 ```
 
+### Marketing site (`/`, `/privacy`, `/support`)
+
+The public home page is built from `../web` into `public/marketing`. Before first `artisan serve` (or after marketing changes):
+
+```sh
+cd ../web && npm ci && npm run build && cd ../api
+```
+
+Dev-only hot reload: `cd web && npm run dev` (port 5174). Details in `../web/README.md`.
+
 Sign in from the app (Debug build) or with curl as `demo@ochords.test` / your `DEMO_PASSWORD`:
 
 ```sh
@@ -124,9 +134,28 @@ php artisan ochords:purge-old-records           # daily 03:30 — resolved repor
 php artisan ochords:reports [--detail]          # open reports (ID, song, reason, reports on that song, created); --detail adds the reporter's text
 php artisan ochords:reports:resolve <id> [--hide|--dismiss]   # fixed by default; --hide makes the sheet private, resolves its other reports, notifies owner and reporters
 php artisan ochords:sheets:hide <songId>        # take a sheet off Explore without a report
+php artisan ochords:sheets:unhide <songId>      # put a private sheet back on Explore
+php artisan ochords:admin:grant <handle>        # promote staff for /admin
+php artisan ochords:admin:revoke <handle>       # demote staff (refuses last admin)
+php artisan ochords:admin:set-password <handle> <password>
 ```
 
-Moderation is console-only on purpose — there is no admin HTTP surface. Hidden sheets stay in the owner's library (and in libraries that saved them) as private; the owner is told in-app.
+### Admin panel (Filament)
+
+Staff ops live at `/admin` (session auth, separate from Sanctum). Access requires a staff **role** (`super_admin`, `admin`, `moderator`, `support`) via Spatie laravel-permission; `users.is_admin` is kept in sync as a fast mirror. Sign-in is email + password (lookup uses `email_hash`). Seed roles with `RolesAndPermissionsSeeder` (runs in `db:seed`).
+
+```sh
+php artisan db:seed --class=RolesAndPermissionsSeeder
+php artisan ochords:admin:grant {handle} --role=super_admin   # also: admin, moderator, support
+php artisan ochords:admin:revoke {handle}
+php artisan ochords:admin:set-password {handle} {password}   # for social-only accounts
+```
+
+The panel covers reports, feedback, sheets (hide/unhide notes, feature on Explore, **Import from scan** — JPEG/PNG/PDF, margin trim + light deskew, multi-page PDF stitch when Imagick is installed, OCR + ChordSheetParser, catalog owner `ochords`, then edit ChordPro), users (roles, Pro, deletion, tokens), Learn CMS, **Roles / Permissions / Permission matrix**, **audit log**, scan quota stats, and staff **2FA** (required when `OCHORDS_ADMIN_REQUIRE_2FA=true`). Sheet import needs `songs.create` and `OCHORDS_SCAN_DRIVER=google` with a Vision key. Abilities are permission-gated. Player `/api/v1` never exposes `is_admin`, roles, or permissions.
+
+Also: `POST /api/v1/webhooks/app-store` (App Store Server Notifications), Android Play sync when `OCHORDS_PLAY_*` is set, Explore `isFeatured`, Telescope on local/staging only.
+
+Artisan moderation commands remain as a CLI fallback (`ochords:reports`, `ochords:reports:resolve`, `ochords:sheets:hide`, `ochords:sheets:unhide`). Hidden sheets stay in the owner's library (and in libraries that saved them) as private; the owner is told in-app.
 
 See `ARCHITECTURE.md` for how the code is organised and the personal-data inventory, and `DEPLOYMENT.md` for running it in staging/production.
 

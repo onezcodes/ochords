@@ -28,6 +28,8 @@ use Illuminate\Support\Carbon;
  * @property string $difficulty
  * @property bool $is_myanmar
  * @property bool $is_public
+ * @property ?Carbon $featured_at
+ * @property ?string $moderation_note
  * @property ?string $my_note
  * @property int $plays
  * @property int $comments_count
@@ -38,7 +40,7 @@ use Illuminate\Support\Carbon;
  */
 #[Fillable([
     'id', 'title', 'artist', 'key', 'tempo', 'sections', 'source', 'version_name', 'difficulty',
-    'is_myanmar', 'is_public', 'my_note', 'added_at',
+    'is_myanmar', 'is_public', 'featured_at', 'moderation_note', 'my_note', 'added_at',
 ])]
 class Song extends Model
 {
@@ -56,9 +58,15 @@ class Song extends Model
             'source' => SongSource::class,
             'is_myanmar' => 'boolean',
             'is_public' => 'boolean',
+            'featured_at' => 'datetime',
             'my_note' => 'encrypted',
             'added_at' => 'datetime',
         ];
+    }
+
+    public function isFeatured(): bool
+    {
+        return $this->featured_at !== null;
     }
 
     /** @return BelongsTo<User, $this> */

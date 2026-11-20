@@ -16,10 +16,12 @@ app/Models/                    Eloquent models, relations, scopes, casts
 app/Enums/                     Tier, SongSource, SectionKind, ReportReason, ReportResolution, FeedbackKind, NotificationCategory, SocialProvider
 resources/certs/               AppleRootCA-G3.pem (fingerprint pinned in AppleTransactionVerifier)
 database/seeders/              LearnPathSeeder (content, every env) · DemoSeeder (synthetic data, non-production only)
-routes/console.php             ochords:purge-deleted-accounts (03:00) · ochords:purge-old-records (03:30) · moderation: ochords:reports, ochords:reports:resolve, ochords:sheets:hide
+routes/console.php             ochords:purge-deleted-accounts (03:00) · ochords:purge-old-records (03:30) · moderation CLI · ochords:admin:grant|revoke|set-password
+app/Providers/Filament/        Admin panel at /admin (session auth; users.is_admin)
+app/Filament/                  Filament resources/widgets for reports, feedback, sheets, users, Learn CMS
 ```
 
-No repository layer: most endpoints are straight reads, so the indirection wouldn't pay for itself. Keep to this pattern — controllers never query models directly.
+No repository layer: most endpoints are straight reads, so the indirection wouldn't pay for itself. Keep to this pattern — controllers never query models directly. Filament resources may use Eloquent for tables; mutations with side effects (hide sheet, resolve report) still go through `ModerationService`.
 
 ## Contract with the iOS app
 
@@ -45,7 +47,7 @@ Notable choices:
 | Password | `users.password` | Sign-in | bcrypt | Until the account is deleted |
 | City | `users.city` (encrypted) | Shown on profile (optional) | `encrypted` cast | Until the account is deleted |
 | Private song note | `songs.my_note` (encrypted) | The player's own reminder | `encrypted` cast; only returned to the owner | With the song |
-| Report detail | `reports.detail` (encrypted) | Moderation | `encrypted` cast; shown on the console only with `--detail` | Open reports until resolved; resolved ones purged after `OCHORDS_REPORT_RETENTION_DAYS` (180) |
+| Report detail | `reports.detail` (encrypted) | Moderation | `encrypted` cast; shown to staff in `/admin` and on the console with `--detail` | Open reports until resolved; resolved ones purged after `OCHORDS_REPORT_RETENTION_DAYS` (180) |
 | Feedback message | `feedback.message` (encrypted) | Product support | `encrypted` cast | Purged after `OCHORDS_FEEDBACK_RETENTION_DAYS` (365); the account link is dropped when the account is deleted |
 | Deletion reason | `users.deletion_reason` (encrypted) | Product feedback | `encrypted` cast | Deleted with the account |
 | Apple / Google user ID | `users.apple_id`, `users.google_id` | Sign in with Apple / Google | Opaque provider IDs; tokens are never stored or logged | Until the account is deleted |
@@ -56,17 +58,24 @@ Notable choices:
 - **Account deletion (DPP2/DPP6):** `DELETE /me` signs out everywhere and stamps `deletion_requested_at`; `ochords:purge-deleted-accounts` deletes the user and cascades their songs, setlists, notifications, progress and saves after `OCHORDS_DELETION_GRACE_DAYS` (30). Signing in during the grace period cancels it, as the app promises.
 - **Data access (DPP6):** `GET /me/export` returns everything the account holds, decrypted, in one JSON document; other players appear only as the titles of public sheets this player saved.
 - **Retention:** `ochords:purge-old-records` runs daily; open reports are never purged.
-- **Moderation:** console commands only (`ochords:reports`, `ochords:reports:resolve`, `ochords:sheets:hide`); hiding makes the sheet private and notifies the owner and reporters in-app.
+- **Moderation:** Filament `/admin` (staff with `is_admin`) plus console fallback (`ochords:reports`, `ochords:reports:resolve`, `ochords:sheets:hide`, `ochords:sheets:unhide`); hiding makes the sheet private and notifies the owner and reporters in-app. Learn curriculum can be edited in `/admin`; `LearnPathSeeder` still upserts by id for fresh deploys — re-seeding overwrites live admin edits for those ids.
+- **Admin auth:** web session + Filament login; not Sanctum. Staff **roles/permissions** (Spatie) gate Filament resources via policies; `users.is_admin` mirrors “has any staff role”. Do not put staff tools on `/api/v1` or leak `is_admin` / roles in profile JSON.
 - **Logs** record event names and user/record IDs only — never emails, passwords, tokens, identity tokens, transactions or free text. Auth successes and failures are logged.
-- **Not yet built:** App Store Server Notifications (so a refund/cancellation reaches the account without the app syncing); account linking/unlinking from the profile screen; a way to answer a data-access request by email rather than in-app.
+- **App Store Server Notifications:** `POST /api/v1/webhooks/app-store` updates/clears Pro from signed transaction info (configure the URL in App Store Connect). Outer notification JWS hardening can still be tightened; entitlement changes key off the verified `signedTransactionInfo`.
+- **Google Play Pro:** `GooglePlayVerifier` + `PUT /me/subscription` with `purchaseToken`/`productId` when package name + access token (or service-account JSON) are set; otherwise Android sync stays 422. `GooglePlayAccessToken` refreshes from the service-account key.
+- **Not yet built:** account linking/unlinking from the profile screen; a way to answer a data-access request by email rather than in-app.
 - Hosting location and any cross-border transfer must be confirmed with the client before production (PDPO). **Scan photos go to Google** — the app's camera screen and privacy policy now say so; confirm Google's Cloud data processing terms are in place before turning server reading on.
 
 ## Sheet reading
 
 The app reads every photo on the phone (Apple Vision: chords, English) unless the server can do better: when signed in, it uploads the page to `POST /scans`, which asks Google Cloud Vision (hinted to Burmese + English) for words and their boxes. Any failure — guest, offline, `503` (reading off / Google down), `429` (daily limit) — falls back to the phone, so a scan never fails because of the server. Each attempt counts towards `OCHORDS_SCAN_DAILY_LIMIT` because each costs a Google call.
 
+## Turning text into a song
+
+- **Player apps** — `POST /scans` returns positioned text only; each app's `ChordSheetParser` builds the draft song on device (so phone OCR and server OCR share one parser).
+- **Staff `/admin`** — Sheets → **Import from scan** prepares the upload via `SheetImagePreparer` (optional margin trim + small-angle deskew; PDF→JPEG and up to 4 pages stacked when Imagick is available), runs OCR, then a PHP port of `ChordSheetParser` (`app/Services/SheetParsing/`) and saves under the catalog owner (`OCHORDS_CATALOG_*`). Staff review ChordPro in Filament before publishing to Explore. Full perspective page-find remains on-device in the apps.
+
 ## Not in this API
 
-- **Turning text into a song** — `POST /scans` only returns positioned text; the app's `ChordSheetParser` builds the song, so on-device and server reading share one parser.
 - **Listen** (song identification and chord estimation) — simulated in the app.
 - Jam rooms, ads, push notifications. Pro purchases happen in StoreKit on the phone; the API only mirrors the verified result.

@@ -127,6 +127,28 @@ class SubscriptionTest extends TestCase
         $this->actingAs($user)->putJson('/api/v1/me/subscription', ['transactionJWS' => self::JWS])->assertOk()->assertJsonPath('isPro', true);
     }
 
+    public function test_app_store_webhook_clears_pro_on_refund_style_events(): void
+    {
+        $this->fakeVerifier();
+        $user = User::factory()->create([
+            'pro_until' => now()->addMonth(),
+            'pro_original_transaction_id' => '2000000123456789',
+        ]);
+
+        $inner = SubscriptionTest::JWS;
+        $payload = rtrim(strtr(base64_encode(json_encode([
+            'notificationType' => 'REFUND',
+            'data' => ['signedTransactionInfo' => $inner],
+        ])), '+/', '-_'), '=');
+        $signedPayload = 'eyJhbGciOiJFUzI1NiJ9.'.$payload.'.c2ln';
+
+        $this->postJson('/api/v1/webhooks/app-store', ['signedPayload' => $signedPayload])
+            ->assertOk()
+            ->assertJsonPath('ok', true);
+
+        $this->assertNull($user->fresh()?->pro_until);
+    }
+
     public function test_the_real_verifier_loads_apples_root_and_rejects_junk(): void
     {
         $verifier = $this->app->make(TransactionVerifier::class);

@@ -44,4 +44,32 @@ return [
         'timeout_seconds' => 20,
     ],
 
+    /*
+    | Filament /admin session: idle lifetime in minutes (overrides SESSION_LIFETIME for the admin panel
+    | via middleware). Keep shorter than the player API (which uses Sanctum tokens).
+    */
+    'admin' => [
+        'session_lifetime_minutes' => (int) env('OCHORDS_ADMIN_SESSION_MINUTES', 60),
+        // Comma-separated CIDRs/IPs; empty = no app-level IP check (still recommend proxy allowlist).
+        'allowed_ips' => array_values(array_filter(array_map('trim', explode(',', (string) env('OCHORDS_ADMIN_ALLOWED_IPS', ''))))),
+        // Non-production staff seeder credentials (StaffSeeder). Never set in production.
+        'seed_handle' => env('OCHORDS_ADMIN_SEED_HANDLE', 'ochordsadmin'),
+        'seed_email' => env('OCHORDS_ADMIN_SEED_EMAIL', 'admin@ochords.local'),
+        'seed_password' => env('OCHORDS_ADMIN_SEED_PASSWORD', 'AdminChords2026!'),
+        // Require TOTP app MFA after staff sign-in. Default on outside local.
+        'require_2fa' => filter_var(
+            env('OCHORDS_ADMIN_REQUIRE_2FA', env('APP_ENV') === 'production' ? 'true' : 'false'),
+            FILTER_VALIDATE_BOOL,
+        ),
+        // Explore uploader for staff-imported sheets (not the person who scanned).
+        'catalog_handle' => env('OCHORDS_CATALOG_HANDLE', 'ochords'),
+        'catalog_email' => env('OCHORDS_CATALOG_EMAIL', 'catalog@ochords.local'),
+        'catalog_name' => env('OCHORDS_CATALOG_NAME', 'O Chords'),
+    ],
+
+    'marketing' => [
+        'app_store_url' => env('OCHORDS_APP_STORE_URL', ''),
+        'play_store_url' => env('OCHORDS_PLAY_STORE_URL', ''),
+    ],
+
 ];

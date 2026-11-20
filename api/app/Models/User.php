@@ -2,8 +2,15 @@
 
 namespace App\Models;
 
+use App\Enums\AdminRole;
 use App\Enums\Tier;
 use Database\Factories\UserFactory;
+use Filament\Auth\MultiFactor\App\Concerns\InteractsWithAppAuthentication;
+use Filament\Auth\MultiFactor\App\Concerns\InteractsWithAppAuthenticationRecovery;
+use Filament\Auth\MultiFactor\App\Contracts\HasAppAuthentication;
+use Filament\Auth\MultiFactor\App\Contracts\HasAppAuthenticationRecovery;
+use Filament\Models\Contracts\FilamentUser;
+use Filament\Panel;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Builder;
@@ -16,6 +23,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Crypt;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @property int $id
@@ -37,13 +45,14 @@ use Laravel\Sanctum\HasApiTokens;
  * @property ?string $google_id
  * @property ?Carbon $pro_until
  * @property ?string $pro_original_transaction_id
+ * @property bool $is_admin
  */
 #[Fillable(['name', 'handle', 'email', 'password', 'city'])]
-#[Hidden(['password', 'email_hash'])]
-class User extends Authenticatable
+#[Hidden(['password', 'email_hash', 'app_authentication_secret', 'app_authentication_recovery_codes'])]
+class User extends Authenticatable implements FilamentUser, HasAppAuthentication, HasAppAuthenticationRecovery
 {
     /** @use HasFactory<UserFactory> */
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, HasRoles, InteractsWithAppAuthentication, InteractsWithAppAuthenticationRecovery, Notifiable;
 
     /** Same defaults as the table, so a just-created user can be shown without reloading. */
     protected $attributes = [
@@ -60,6 +69,7 @@ class User extends Authenticatable
         'google_id' => null,
         'pro_until' => null,
         'pro_original_transaction_id' => null,
+        'is_admin' => false,
     ];
 
     protected function casts(): array
@@ -71,7 +81,24 @@ class User extends Authenticatable
             'deletion_requested_at' => 'datetime',
             'pro_until' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
+    }
+
+    public function canAccessPanel(Panel $panel): bool
+    {
+        if ($panel->getId() !== 'admin') {
+            return false;
+        }
+
+        // is_admin is a fast mirror of “holds any staff role”; roles are the source of truth for abilities.
+        return $this->is_admin || $this->hasAnyRole(AdminRole::panelRoles());
+    }
+
+    /** Super admins bypass permission checks in policies. */
+    public function isSuperAdmin(): bool
+    {
+        return $this->hasRole(AdminRole::SuperAdmin->value);
     }
 
     /** Lookup key for an email: HMAC so the stored value can't be reversed or matched without the key. */

@@ -29,7 +29,8 @@ class CommunityTest extends TestCase
             ->assertJsonPath('0.song.id', $public->id)
             ->assertJsonPath('0.votes', 3)
             ->assertJsonPath('0.difficulty', 'Beginner')
-            ->assertJsonStructure(['*' => ['song' => ['id', 'uploader' => ['id', 'name', 'tier']], 'votes', 'comments', 'difficulty']]);
+            ->assertJsonPath('0.isFeatured', false)
+            ->assertJsonStructure(['*' => ['song' => ['id', 'uploader' => ['id', 'name', 'tier']], 'votes', 'comments', 'difficulty', 'isFeatured']]);
     }
 
     public function test_explore_searches_title_artist_and_uploader(): void

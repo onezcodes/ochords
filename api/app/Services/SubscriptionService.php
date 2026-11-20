@@ -3,25 +3,28 @@
 namespace App\Services;
 
 use App\Models\User;
+use App\Services\Play\GooglePlayVerifier;
 use App\Services\StoreKit\MalformedTransactionException;
 use App\Services\StoreKit\SignedTransaction;
 use App\Services\StoreKit\TransactionVerifier;
 use Illuminate\Support\Facades\Log;
 
 /**
- * O Chords Pro: the app sends its current StoreKit 2 transaction and the account mirrors its state.
- * Pro lasts until `pro_until`; nothing here talks to the App Store Server API.
+ * O Chords Pro: the app syncs StoreKit 2 (iOS) or Play Billing (Android) and the account mirrors entitlement.
  */
 class SubscriptionService
 {
     private const SANDBOX_ENVIRONMENTS = ['Sandbox', 'Xcode'];
 
-    public function __construct(private readonly TransactionVerifier $verifier) {}
+    public function __construct(
+        private readonly TransactionVerifier $verifier,
+        private readonly GooglePlayVerifier $play,
+    ) {}
 
     public function sync(User $user, string $transactionJws): User
     {
         $transaction = $this->verifier->verify($transactionJws);
-        $this->checkTransaction($transaction);
+        $this->checkAppleTransaction($transaction);
 
         $until = $transaction->expiresDate;
         if ($transaction->revocationDate !== null && $transaction->revocationDate->lt($until)) {
@@ -36,6 +39,28 @@ class SubscriptionService
             'product_id' => $transaction->productId,
             'environment' => $transaction->environment,
             'pro_until' => $until->toIso8601ZuluString(),
+            'platform' => 'ios',
+        ]);
+
+        return $user;
+    }
+
+    public function syncPlay(User $user, string $purchaseToken, string $productId): User
+    {
+        if (! $this->play->isConfigured()) {
+            throw new MalformedTransactionException('Google Play Pro verification is not configured on this server.');
+        }
+
+        $purchase = $this->play->verify($purchaseToken, $productId);
+        $user->forceFill([
+            'pro_until' => $purchase['expiry'],
+            'pro_original_transaction_id' => $purchase['orderId'],
+        ])->save();
+        Log::info('pro.synced', [
+            'user_id' => $user->id,
+            'product_id' => $purchase['productId'],
+            'pro_until' => $purchase['expiry']->toIso8601ZuluString(),
+            'platform' => 'android',
         ]);
 
         return $user;
@@ -53,7 +78,7 @@ class SubscriptionService
     /**
      * @phpstan-assert !null $transaction->expiresDate
      */
-    private function checkTransaction(SignedTransaction $transaction): void
+    private function checkAppleTransaction(SignedTransaction $transaction): void
     {
         if ($transaction->bundleId !== (string) config('services.apple.bundle_id')) {
             throw new MalformedTransactionException('This transaction is for another app.');

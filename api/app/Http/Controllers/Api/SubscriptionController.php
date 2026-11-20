@@ -10,7 +10,7 @@ use App\Services\ProfileService;
 use App\Services\SubscriptionService;
 use Illuminate\Http\Request;
 
-/** O Chords Pro: the app syncs its StoreKit 2 transaction here; both calls answer with the Profile. */
+/** O Chords Pro: the app syncs StoreKit 2 or Play Billing; both calls answer with the Profile. */
 class SubscriptionController extends Controller
 {
     public function __construct(
@@ -20,7 +20,16 @@ class SubscriptionController extends Controller
 
     public function update(SyncSubscriptionRequest $request): ProfileResource
     {
-        $user = $this->subscriptions->sync($this->user($request), $request->string('transactionJWS')->toString());
+        $account = $this->user($request);
+        if ($request->filled('purchaseToken')) {
+            $user = $this->subscriptions->syncPlay(
+                $account,
+                $request->string('purchaseToken')->toString(),
+                $request->string('productId')->toString(),
+            );
+        } else {
+            $user = $this->subscriptions->sync($account, $request->string('transactionJWS')->toString());
+        }
 
         return new ProfileResource($this->profiles->withWeek($user));
     }

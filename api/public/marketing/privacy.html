@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Privacy — O Chords</title>
+    <meta name="description" content="How O Chords handles account data, sheet scans, and personal information." />
+    <link rel="icon" href="/marketing/brand/o-chords-mark.svg" type="image/svg+xml" />
+    <script type="module" crossorigin src="/marketing/assets/main-DUeopA7G.js"></script>
+    <link rel="stylesheet" crossorigin href="/marketing/assets/main-I6WVFzGU.css">
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true"></div>
+    <header class="nav" data-nav>
+      <div class="nav-inner">
+        <a class="brand" href="/">
+          <img src="/marketing/brand/o-chords-mark.svg" width="34" height="34" alt="" />
+          <span>Chords</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="/#features">Features</a>
+          <a href="/support">Support</a>
+          <a href="/#download">Download</a>
+        </nav>
+        <a class="nav-cta" href="/#download">Get the app</a>
+        <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <header class="page-hero">
+        <h1>Privacy</h1>
+        <p>
+          O Chords is built to keep your music usable without treating personal data as product fuel. This page
+          summarizes what the apps and API store today.
+        </p>
+      </header>
+
+      <article class="prose">
+        <h2>Account</h2>
+        <p>
+          If you create an account, we store your name, handle, and an encrypted email (looked up with a separate
+          HMAC key). Passwords are hashed. Optional city and social sign-in subject IDs may be stored for profile and
+          Apple/Google sign-in.
+        </p>
+
+        <h2>Your sheets</h2>
+        <p>
+          Songs you save sync to your account as chord-sheet data (title, artist, sections, visibility). Private notes
+          on a sheet are encrypted and only returned to you. Public sheets appear in Explore.
+        </p>
+
+        <h2>Scanning</h2>
+        <p>
+          Photos used for sheet reading are processed in memory for the request. When server reading is on and you’re
+          signed in, the image may be sent to Google Cloud Vision to read Myanmar lyrics. Scan photos are not kept on
+          O Chords servers.
+        </p>
+
+        <h2>Reports &amp; feedback</h2>
+        <p>
+          Free-text report details and feedback messages are encrypted at rest, retained for a limited period after
+          resolution, and visible only to staff tools used for moderation.
+        </p>
+
+        <h2>Pro subscription</h2>
+        <p>
+          We store Pro expiry and the store’s original transaction identifier after verifying a purchase. We do not
+          keep the full receipt payload.
+        </p>
+
+        <h2>Deletion &amp; export</h2>
+        <ul>
+          <li>In-app account deletion starts a grace period, then removes the account and cascaded data.</li>
+          <li>Signed-in players can export their account data from the app.</li>
+        </ul>
+
+        <h2>Contact</h2>
+        <p>
+          Privacy questions: <a href="mailto:it@visibleone.com">it@visibleone.com</a>. Product support:
+          <a href="/support">Support</a>.
+        </p>
+      </article>
+    </main>
+
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <a class="brand" href="/">
+          <img src="/marketing/brand/o-chords-mark.svg" width="28" height="28" alt="" />
+          <span>Chords</span>
+        </a>
+        <nav aria-label="Footer">
+          <a href="/privacy">Privacy</a>
+          <a href="/support">Support</a>
+          <a href="/#download">Download</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
